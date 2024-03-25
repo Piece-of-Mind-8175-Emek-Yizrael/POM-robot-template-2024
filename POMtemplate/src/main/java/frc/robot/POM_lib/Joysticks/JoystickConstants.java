@@ -19,19 +19,19 @@ public final class JoystickConstants {
     public static final int START = 8;
 
     /** left joystick click button axis */
-    public static final int LEFT_JOYSTICK_CLICK = 9;
+    public static final int LEFT_STICK_CLICK = 9;
     /** right joystick click button axis */
-    public static final int RIGHT_JOYSTICK_CLICK = 10;
+    public static final int RIGHT_STICK_CLICK = 10;
 
     /** left trigger button axis */
     public static final int LEFT_TRIGGER = 2;
     /** right trigger button axis */
     public static final int RIGHT_TRIGGER = 3;
 
-    public static final int LEFT_JOYSTICK_Y = 1;
-    public static final int LEFT_JOYSTICK_X = 0;
-    public static final int RIGHT_JOYSTICK_Y = 5;
-    public static final int RIGHT_JOYSTICK_X = 4;
+    public static final int LEFT_STICK_Y = 1;
+    public static final int LEFT_STICK_X = 0;
+    public static final int RIGHT_STICK_Y = 5;
+    public static final int RIGHT_STICK_X = 4;
 
     public static final int POV_DOWN = 180;
     public static final int POV_LEFT = 270;

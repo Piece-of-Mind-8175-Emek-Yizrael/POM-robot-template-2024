@@ -58,23 +58,15 @@ public interface PomController{
 
     Trigger PovUp();
     Trigger PovUp(EventLoop loop);
-    BooleanSupplier PovUpPressed();
-    BooleanSupplier PovUpReleased();
 
     Trigger PovDown();
     Trigger PovDown(EventLoop loop);
-    BooleanSupplier PovDownPressed();
-    BooleanSupplier PovDownReleased();
 
     Trigger PovLeft();
     Trigger PovLeft(EventLoop loop);
-    BooleanSupplier PovLeftPressed();
-    BooleanSupplier PovLeftReleased();
     
     Trigger PovRight();
     Trigger PovRight(EventLoop loop);
-    BooleanSupplier PovRightPressed();
-    BooleanSupplier PovRightReleased();
 
     double povAngle();
 
