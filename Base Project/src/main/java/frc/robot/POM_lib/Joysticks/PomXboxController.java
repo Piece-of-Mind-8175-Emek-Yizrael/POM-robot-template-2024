@@ -297,14 +297,12 @@ public class PomXboxController implements PomController{
 
     @Override
     public Trigger rightTrigger(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightTrigger'");
+        return controller.rightTrigger(threshold, loop);
     }
 
     @Override
     public Trigger rightTrigger(double threshold) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightTrigger'");
+        return controller.rightTrigger(threshold);
     }
 
     @Override
@@ -314,172 +312,151 @@ public class PomXboxController implements PomController{
 
     @Override
     public Trigger leftYUp(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftYUp'");
+        return controller.axisLessThan(LEFT_STICK_Y, threshold, loop);
     }
 
     @Override
     public Trigger leftYUp(double threshold) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftYUp'");
+        return controller.axisLessThan(LEFT_STICK_Y, threshold);
     }
 
     @Override
     public Trigger leftYUp() {
-        return new Trigger(() -> controller.getLeftY() < -THRESHOLD);
+        return controller.axisLessThan(LEFT_STICK_Y, THRESHOLD);
     }
 
     @Override
     public Trigger rightYUp(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightYUp'");
+        return controller.axisLessThan(RIGHT_STICK_Y, threshold, loop);
     }
 
     @Override
     public Trigger rightYUp(double threshold) {
-        return new Trigger(() -> controller.getRightY() < -threshold);
+        return controller.axisLessThan(RIGHT_STICK_Y, threshold);
     }
 
     @Override
     public Trigger rightYUp() {
-        return new Trigger(() -> controller.getRightY() < -THRESHOLD);
+        return controller.axisLessThan(RIGHT_STICK_Y, THRESHOLD);
     }
 
     @Override
     public Trigger leftYDown(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftYDown'");
+        return controller.axisGreaterThan(LEFT_STICK_Y, threshold, loop);
     }
 
     @Override
     public Trigger leftYDown(double threshold) {
-        return new Trigger(() -> controller.getLeftY() > THRESHOLD);
+        return controller.axisGreaterThan(LEFT_STICK_Y, threshold);
     }
 
     @Override
     public Trigger leftYDown() {
-        return new Trigger(() -> controller.getLeftY() > THRESHOLD);
+        return controller.axisGreaterThan(LEFT_STICK_Y, THRESHOLD);
     }
 
     @Override
     public Trigger rightYDown(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightYDown'");
+        return controller.axisGreaterThan(RIGHT_STICK_Y, threshold, loop);
     }
 
     @Override
     public Trigger rightYDown(double threshold) {
-        return new Trigger(() -> controller.getRightY() > threshold);
+        return controller.axisGreaterThan(RIGHT_STICK_Y, threshold);
     }
 
     @Override
     public Trigger rightYDown() {
-        return new Trigger(() -> controller.getRightY() > THRESHOLD);
+        return controller.axisGreaterThan(RIGHT_STICK_Y, THRESHOLD);
     }
 
     @Override
     public Trigger leftXLeft(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftXLeft'");
+        return controller.axisLessThan(LEFT_STICK_X, threshold, loop);
     }
 
     @Override
     public Trigger leftXLeft(double threshold) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftXLeft'");
+        return controller.axisLessThan(LEFT_STICK_X, threshold);
     }
 
     @Override
     public Trigger leftXLeft() {
-        return controller.leftTrigger();
+        return controller.axisLessThan(LEFT_STICK_X, THRESHOLD);
     }
 
     @Override
     public Trigger rightXLeft(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightXLeft'");
+        return controller.axisLessThan(RIGHT_STICK_X, threshold, loop);
     }
 
     @Override
     public Trigger rightXLeft(double threshold) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightXLeft'");
+        return controller.axisLessThan(RIGHT_STICK_X, threshold);
     }
 
     @Override
     public Trigger rightXLeft() {
-       return controller.leftTrigger();
+        return controller.axisLessThan(RIGHT_STICK_X, THRESHOLD);
     }
 
     @Override
     public Trigger leftXRight(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftXRight'");
+        return controller.axisGreaterThan(LEFT_STICK_X, threshold, loop);
     }
 
     @Override
     public Trigger leftXRight(double threshold) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftXRight'");
+        return controller.axisGreaterThan(LEFT_STICK_X, threshold);
     }
 
     @Override
     public Trigger leftXRight() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'leftXRight'");
+        return controller.axisGreaterThan(LEFT_STICK_X, THRESHOLD);
     }
 
     @Override
     public Trigger rightXRight(double threshold, EventLoop loop) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightXRight'");
+        return controller.axisGreaterThan(RIGHT_STICK_X, threshold, loop);
     }
 
     @Override
     public Trigger rightXRight(double threshold) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightXRight'");
+        return controller.axisGreaterThan(RIGHT_STICK_X, threshold);
     }
 
     @Override
     public Trigger rightXRight() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'rightXRight'");
+        return controller.axisGreaterThan(LEFT_STICK_X, THRESHOLD);
     }
 
     @Override
     public double getLeftX() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLeftX'");
+        return controller.getLeftX();
     }
 
     @Override
     public double getRightX() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getRightX'");
+        return controller.getRightX();
     }
 
     @Override
     public double getLeftY() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLeftY'");
+        return controller.getLeftY();
     }
 
     @Override
     public double getRightY() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getRightY'");
+        return controller.getRightY();
     }
 
     @Override
     public double getLeftTriggerAxis() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getLeftTriggerAxis'");
+        return controller.getLeftTriggerAxis();
     }
 
     @Override
     public double getRightTriggerAxis() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getRightTriggerAxis'");
+        return controller.getRightTriggerAxis();
     }
 }
