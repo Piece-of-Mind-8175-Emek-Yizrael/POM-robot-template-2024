@@ -432,23 +432,23 @@ public class PomXboxController implements PomController{
 
     @Override
     public double getLeftX() {
-        return controller.getLeftX();
+        return -controller.getLeftX();
     }
-
+    
     @Override
     public double getRightX() {
-        return controller.getRightX();
+        return -controller.getRightX();
     }
-
+    
     @Override
     public double getLeftY() {
-        return controller.getLeftY();
+        return -controller.getLeftY();
     }
-
+    
     @Override
     public double getRightY() {
-        return controller.getRightY();
-    }
+        return -controller.getRightY();
+    }    
 
     @Override
     public double getLeftTriggerAxis() {
