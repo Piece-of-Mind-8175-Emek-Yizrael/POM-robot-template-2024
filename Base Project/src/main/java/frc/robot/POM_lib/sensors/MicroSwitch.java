@@ -15,6 +15,15 @@ public class MicroSwitch {
     public boolean get(){
         return normallyOpen ^ input.get(); //if normally open, reverse. else not. 
     }
+    public void close(){
+        input.close();
+    }
+    public int getChannel(){
+        return input.getChannel();
+    }
+    public boolean getNormallyOpen(){
+        return normallyOpen;
+    }
     public DigitalInput getInput(){
         return input;
     }
