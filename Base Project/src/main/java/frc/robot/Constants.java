@@ -11,6 +11,8 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.util.Color;
+
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide numerical or boolean
  * constants.  This class should not be used for any other purpose.  All constants should be
@@ -20,13 +22,13 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public class Constants {
-   /**
-    * public static final class DriveConstants {
-    *   public static final int kLeftMotor1Port = 0;
-    *   public static final int kLeftMotor2Port = 1;
-    *   public static final int kRightMotor1Port = 2;
-    *   public static final int kRightMotor2Port = 3; 
-    * }
-    */ 
+    public static final class LEDConstants{
+        public static final int LED_PWM_PORT = 0;
+        public static final int LED_COUNT = 0;
+        public static final Color DEFAULT_COLOR = new Color(98, 0, 151);
+        public static final double DEFAULT_BLINK_TIME = 0.1;
+        public static final int DEFAULT_BLINK_COUNT = 5;
+
+    }
 }
 
