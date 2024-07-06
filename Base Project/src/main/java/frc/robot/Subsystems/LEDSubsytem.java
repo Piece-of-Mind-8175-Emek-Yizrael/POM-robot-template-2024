@@ -1,6 +1,6 @@
 package frc.robot.Subsystems;
 
-import static frc.robot.Constants.LEDConstants.DEFAULT_BLINK_COUNT;
+import static frc.robot.Constants.LEDConstants.INFINITE_BLINK;
 import static frc.robot.Constants.LEDConstants.DEFAULT_COLOR;
 import static frc.robot.Constants.LEDConstants.LED_COUNT;
 import static frc.robot.Constants.LEDConstants.LED_PWM_PORT;
@@ -42,6 +42,7 @@ public class LEDSubsytem extends SubsystemBase {
         }
         return instance;
     }
+    
 
     /**
      * Sets the leds to a specific color.
@@ -181,7 +182,7 @@ public class LEDSubsytem extends SubsystemBase {
 
             @Override
             public boolean isFinished() {
-                return blinks != -1 ? timer.get() > ((onTime + offTime) * blinks) : false;
+                return blinks != INFINITE_BLINK ? timer.get() > ((onTime + offTime) * blinks) : false;
             }
         };
     }
@@ -215,7 +216,7 @@ public class LEDSubsytem extends SubsystemBase {
      */
 
     public Command blinkCommand(Color color){
-        return blinkCommand(color, DEFAULT_BLINK_COUNT);
+        return blinkCommand(color, INFINITE_BLINK);
     }
     
 }

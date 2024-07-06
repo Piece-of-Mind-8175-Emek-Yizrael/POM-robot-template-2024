@@ -27,7 +27,7 @@ public class Constants {
         public static final int LED_COUNT = 0;
         public static final Color DEFAULT_COLOR = new Color(98, 0, 151);
         public static final double DEFAULT_BLINK_TIME = 0.1;
-        public static final int DEFAULT_BLINK_COUNT = 5;
+        public static final int INFINITE_BLINK = -1;
 
     }
 }
