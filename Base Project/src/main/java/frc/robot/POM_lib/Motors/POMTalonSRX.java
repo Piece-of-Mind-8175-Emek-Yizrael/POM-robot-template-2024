@@ -11,7 +11,7 @@ public class POMTalonSRX extends WPI_TalonSRX implements POMMotor {
 
     @Override
     public void setDirection(Direction direction) {
-        setInverted(direction == Direction.ClockWise);
+        setInverted(direction == Direction.CounterClockWise);
     }
     @Override
     public void stop() {

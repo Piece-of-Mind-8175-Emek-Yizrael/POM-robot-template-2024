@@ -17,7 +17,7 @@ public class POMSparkMax extends CANSparkMax implements POMMotor{
     }
     @Override
     public void setDirection(Direction direction) {
-        setInverted(direction == Direction.ClockWise);
+        setInverted(direction == Direction.CounterClockWise);
     }
 
     @Override
