@@ -9,11 +9,15 @@ public class DashboardNumber {
     NetworkTableEntry entry;
 
     final String tableName = "Tunes";
+        
     public DashboardNumber(String name, double defaultValue){
         SmartDashboard.putNumber(name, defaultValue);
         entry = NetworkTableInstance.getDefault().getTable(tableName).getEntry(name);
         this.defaultValue = defaultValue;
         entry.setDouble(defaultValue);
+    }
+    public DashboardNumber(String name){
+        this(name, 0);
     }
 
 
