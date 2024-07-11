@@ -15,7 +15,7 @@ public class POMTalonSRX extends WPI_TalonSRX implements POMMotor {
     }
     @Override
     public void stop() {
-        set(0);
+        stopMotor();
     }
     @Override
     public void setBrake(boolean isBrake) {

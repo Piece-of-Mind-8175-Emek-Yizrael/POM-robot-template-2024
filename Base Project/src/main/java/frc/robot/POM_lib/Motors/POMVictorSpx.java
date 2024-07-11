@@ -15,7 +15,7 @@ public class POMVictorSpx extends WPI_VictorSPX implements POMMotor {
     }
     @Override
     public void stop() {
-        set(0);
+        stopMotor();
     }
     @Override
     public void setBrake(boolean isBrake) {
