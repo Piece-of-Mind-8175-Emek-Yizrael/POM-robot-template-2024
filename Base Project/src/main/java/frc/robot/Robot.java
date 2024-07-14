@@ -15,9 +15,14 @@ package frc.robot;
 import edu.wpi.first.hal.FRCNetComm.tInstances;
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
+import edu.wpi.first.networktables.GenericEntry;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.Constants.GameConstants;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -32,6 +37,11 @@ public class Robot extends TimedRobot {
 
     private RobotContainer m_robotContainer;
 
+    GenericEntry autoTime;
+    GenericEntry teleopTime;
+    GenericEntry endGameTime;
+    GenericEntry voltageEntry;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -43,6 +53,10 @@ public class Robot extends TimedRobot {
         m_robotContainer = RobotContainer.getInstance();
         HAL.report(tResourceType.kResourceType_Framework, tInstances.kFramework_RobotBuilder);
         enableLiveWindowInTest(true);
+        autoTime = Shuffleboard.getTab("Auto").add("Time", GameConstants.AUTO_TIME).getEntry();
+        teleopTime = Shuffleboard.getTab("Teleop").add("Time", GameConstants.TELEOP_TIME).getEntry();
+        endGameTime = Shuffleboard.getTab("EndGame").add("Time", GameConstants.ENDGAME_TIME).getEntry();
+        voltageEntry = Shuffleboard.getTab("General").add("Voltage", RobotController.getBatteryVoltage()).getEntry();
     }
 
     /**
@@ -59,6 +73,7 @@ public class Robot extends TimedRobot {
         // and running subsystem periodic() methods.  This must be called from the robot's periodic
         // block in order for anything in the Command-based framework to work.
         CommandScheduler.getInstance().run();
+        voltageEntry.setDouble(RobotController.getBatteryVoltage());
     }
 
 
@@ -84,6 +99,7 @@ public class Robot extends TimedRobot {
         if (m_autonomousCommand != null) {
             m_autonomousCommand.schedule();
         }
+        Shuffleboard.selectTab("Auto");
     }
 
     /**
@@ -91,6 +107,7 @@ public class Robot extends TimedRobot {
     */
     @Override
     public void autonomousPeriodic() {
+        autoTime.setInteger((long)DriverStation.getMatchTime() + 1);
     }
 
     @Override
@@ -102,6 +119,7 @@ public class Robot extends TimedRobot {
         if (m_autonomousCommand != null) {
             m_autonomousCommand.cancel();
         }
+        Shuffleboard.selectTab("Teleop");
     }
 
     /**
@@ -109,6 +127,16 @@ public class Robot extends TimedRobot {
      */
     @Override
     public void teleopPeriodic() {
+        int time = (int)DriverStation.getMatchTime() + 1;
+        if(time > GameConstants.ENDGAME_TIME){
+            teleopTime.setInteger((long)DriverStation.getMatchTime());
+        }
+        else if(time == GameConstants.ENDGAME_TIME){
+            Shuffleboard.selectTab("EndGame");
+        }
+        else{
+            endGameTime.setInteger((long)DriverStation.getMatchTime());
+        }
     }
 
     @Override
