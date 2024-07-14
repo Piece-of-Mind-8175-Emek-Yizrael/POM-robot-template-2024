@@ -21,7 +21,7 @@ public class DashboardNumber {
     }
 
 
-    double get(){
+    public double get(){
         return entry.getDouble(defaultValue);
     }
 }
