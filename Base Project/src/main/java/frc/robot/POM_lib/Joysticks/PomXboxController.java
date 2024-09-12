@@ -9,14 +9,15 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 import static frc.robot.POM_lib.Joysticks.JoystickConstants.*;
 
-public class PomXboxController implements PomController{
+public class PomXboxController implements PomController {
     CommandXboxController controller;
     int port = 0;
-    public PomXboxController(int port){
+
+    public PomXboxController(int port) {
         controller = new CommandXboxController(port);
         this.port = port;
     }
-    
+
     @Override
     public Trigger LB() {
         return controller.leftBumper();
@@ -26,7 +27,7 @@ public class PomXboxController implements PomController{
     public Trigger LB(EventLoop loop) {
         return controller.leftBumper(loop);
     }
-    
+
     @Override
     public BooleanSupplier LBPressed() {
         return () -> DriverStation.getStickButtonPressed(port, LB);
@@ -66,7 +67,6 @@ public class PomXboxController implements PomController{
     public Trigger leftStickClick(EventLoop loop) {
         return controller.leftStick(loop);
     }
-
 
     @Override
     public BooleanSupplier leftStickClickPressed() {
@@ -120,7 +120,7 @@ public class PomXboxController implements PomController{
 
     @Override
     public Trigger b() {
-        return controller.b();    
+        return controller.b();
     }
 
     @Override
@@ -238,7 +238,6 @@ public class PomXboxController implements PomController{
         return controller.pov(0, POV_DOWN, loop);
     }
 
-
     @Override
     public Trigger PovLeft() {
         return controller.povLeft();
@@ -261,20 +260,16 @@ public class PomXboxController implements PomController{
 
     @Override
     public double povAngle() {
-        if(PovUp().getAsBoolean())
-        {
+        if (PovUp().getAsBoolean()) {
             return POV_UP;
         }
-        if(PovDown().getAsBoolean())
-        {
+        if (PovDown().getAsBoolean()) {
             return POV_DOWN;
         }
-        if(PovLeft().getAsBoolean())
-        {
+        if (PovLeft().getAsBoolean()) {
             return POV_LEFT;
         }
-        if(PovRight().getAsBoolean())
-        {
+        if (PovRight().getAsBoolean()) {
             return POV_RIGHT;
         }
         return POV_NONE;
@@ -434,21 +429,21 @@ public class PomXboxController implements PomController{
     public double getLeftX() {
         return -controller.getLeftX();
     }
-    
+
     @Override
     public double getRightX() {
         return -controller.getRightX();
     }
-    
+
     @Override
     public double getLeftY() {
         return -controller.getLeftY();
     }
-    
+
     @Override
     public double getRightY() {
         return -controller.getRightY();
-    }    
+    }
 
     @Override
     public double getLeftTriggerAxis() {
