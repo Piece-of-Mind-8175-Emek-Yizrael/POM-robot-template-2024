@@ -14,6 +14,11 @@ public abstract class PomMotorSubsystem extends SubsystemBase {
 
     public abstract void setMotor(double percent);
 
+    /**
+     * Set brake mode
+     * If motor should always be the smae, ignore paramter!
+     * @param brake
+     */
     public abstract void setIdleMode(boolean brake);
 
     public void resetEncoder() {
