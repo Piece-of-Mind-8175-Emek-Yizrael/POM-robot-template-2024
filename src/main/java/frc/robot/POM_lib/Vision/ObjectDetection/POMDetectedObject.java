@@ -17,6 +17,30 @@ public class POMDetectedObject {
         centerY = (int) (corners[2].y + (double) (height / 2));
     }
 
+    public int getArea() {
+        return area;
+    }
+
+    public int getCenterX() {
+        return centerX;
+    }
+
+    public int getCenterY() {
+        return centerY;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public ObjectDetectionConstants.GameObjects getType() {
+        return type;
+    }
+
     TargetCorner[] organizeCorners(TargetCorner[] orgCorners) {
         TargetCorner[] result = orgCorners;
         boolean isOrganized = false;
