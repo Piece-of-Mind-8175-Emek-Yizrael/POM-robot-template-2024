@@ -126,6 +126,8 @@ public class POMDetectedObjectGroup {
                     return objectList;
                 }
             }
+            System.out.println("did not do switch case");
+            return objectList;
         }
     }
 }

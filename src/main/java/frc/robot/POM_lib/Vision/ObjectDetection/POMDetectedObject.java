@@ -37,6 +37,10 @@ public class POMDetectedObject {
         return height;
     }
 
+    public double getDist() {
+        return type.getDistFromWidth(width);
+    }
+
     public ObjectDetectionConstants.GameObjects getType() {
         return type;
     }
