@@ -1,10 +1,20 @@
 package frc.robot.POM_lib.Vision.AprilTag;
 
-import edu.wpi.first.math.geometry.Translation3d;
+import edu.wpi.first.apriltag.AprilTagFieldLayout;
+import edu.wpi.first.apriltag.AprilTagFields;
+import edu.wpi.first.math.geometry.Transform3d;
+import org.photonvision.PhotonPoseEstimator;
+import org.photonvision.targeting.PhotonPipelineResult;
+
+import java.io.IOException;
 
 public class AprilTagMath {
-    public static Translation3d getTagToRobot(Translation3d cameraToTag, Translation3d robotToCamera) {
-        return null;
-        // TODO
+    public static Transform3d getTagToRobot(PhotonPipelineResult cameraToTag, Transform3d robotToCamera) throws IOException {
+        PhotonPoseEstimator photonPoseEstimator = new PhotonPoseEstimator(AprilTagFieldLayout.loadFromResource(
+                AprilTagFields.kBaseResourceDir),
+                PhotonPoseEstimator.PoseStrategy.AVERAGE_BEST_TARGETS,
+                robotToCamera);
+        photonPoseEstimator.update(cameraToTag);
+        return photonPoseEstimator.getRobotToCameraTransform();
     }
 }

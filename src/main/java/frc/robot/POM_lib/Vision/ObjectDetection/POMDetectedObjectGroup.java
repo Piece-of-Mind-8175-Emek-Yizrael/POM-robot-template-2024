@@ -25,7 +25,11 @@ public class POMDetectedObjectGroup {
     }
 
     public POMDetectedObject getBestObject() {
-        return sortingOrder.getSorted(detectedObjects, cameraConfiguration).get(0);
+        try {
+            return sortingOrder.getSorted(detectedObjects, cameraConfiguration).get(0);
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     public enum ObjectSortingOrder {
@@ -59,6 +63,7 @@ public class POMDetectedObjectGroup {
                                 POMDetectedObject detectedObject = objectList.get(i);
                                 objectList.set(i, objectList.get(i + 1));
                                 objectList.set(i + 1, detectedObject);
+                                sorted = false;
                             }
                         }
                     }
@@ -73,6 +78,7 @@ public class POMDetectedObjectGroup {
                                 POMDetectedObject detectedObject = objectList.get(i);
                                 objectList.set(i, objectList.get(i + 1));
                                 objectList.set(i + 1, detectedObject);
+                                sorted = false;
                             }
                         }
                     }

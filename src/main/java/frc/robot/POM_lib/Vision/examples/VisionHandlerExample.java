@@ -1,11 +1,13 @@
 package frc.robot.POM_lib.Vision.examples;
 
-import edu.wpi.first.math.geometry.Translation3d;
+import edu.wpi.first.math.geometry.Transform3d;
 import frc.robot.POM_lib.Vision.AprilTag.POMAprilTagCamera;
 import frc.robot.POM_lib.Vision.ObjectDetection.POMDetectedObject;
 import frc.robot.POM_lib.Vision.ObjectDetection.POMDetectedObjectGroup;
 import frc.robot.POM_lib.Vision.ObjectDetection.POMObjectDetectionCamera;
 import frc.robot.POM_lib.Vision.ObjectDetection.POMObjectDetectionCameraConfiguration;
+
+import java.io.IOException;
 
 public class VisionHandlerExample {
     static VisionHandlerExample instance;
@@ -13,10 +15,10 @@ public class VisionHandlerExample {
     POMAprilTagCamera aprilTagCamera;
 
     VisionHandlerExample() {
-        objectDetectionCamera = new POMObjectDetectionCamera("testObjectDetection"
-                , new POMObjectDetectionCameraConfiguration(224, 224));
+        objectDetectionCamera = new POMObjectDetectionCamera("test"
+                , new POMObjectDetectionCameraConfiguration(640, 480));
         aprilTagCamera = new POMAprilTagCamera("testAprilTag",
-                new Translation3d());
+                new Transform3d());
     }
 
     public static VisionHandlerExample getInstance() {
@@ -32,7 +34,7 @@ public class VisionHandlerExample {
         objectDetectionCamera.setSortingOrder(order);
     }
 
-    public boolean isCertainTagVisible(int tagID) {
+    public boolean isCertainTagVisible(int tagID) throws IOException {
         return aprilTagCamera.isCertainTagVisible(tagID);
     }
 

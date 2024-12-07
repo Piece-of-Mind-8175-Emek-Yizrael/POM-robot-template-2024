@@ -9,7 +9,7 @@ public class POMObjectDetectionCamera extends POMCamera {
     public POMObjectDetectionCamera(String name, POMObjectDetectionCameraConfiguration configuration) {
         super(name);
         this.configuration = configuration;
-        sortingOrder = POMDetectedObjectGroup.ObjectSortingOrder.Y_Closest;
+        setSortingOrder(POMDetectedObjectGroup.ObjectSortingOrder.Y_Closest);
     }
 
     public void setSortingOrder(POMDetectedObjectGroup.ObjectSortingOrder sortingOrder) {
