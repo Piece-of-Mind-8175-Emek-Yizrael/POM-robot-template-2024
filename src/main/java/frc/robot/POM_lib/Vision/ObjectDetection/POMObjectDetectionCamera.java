@@ -1,8 +1,8 @@
 package frc.robot.POM_lib.Vision.ObjectDetection;
 
-import frc.robot.POM_lib.Vision.POMCamera;
+import org.photonvision.PhotonCamera;
 
-public class POMObjectDetectionCamera extends POMCamera {
+public class POMObjectDetectionCamera extends PhotonCamera {
     POMObjectDetectionCameraConfiguration configuration;
     POMDetectedObjectGroup.ObjectSortingOrder sortingOrder;
 
@@ -17,7 +17,7 @@ public class POMObjectDetectionCamera extends POMCamera {
     }
 
     public POMDetectedObjectGroup getDetectionGroup() {
-        return new POMDetectedObjectGroup(photonCamera.getLatestResult()
+        return new POMDetectedObjectGroup(super.getLatestResult()
                 , sortingOrder
                 , configuration);
     }
