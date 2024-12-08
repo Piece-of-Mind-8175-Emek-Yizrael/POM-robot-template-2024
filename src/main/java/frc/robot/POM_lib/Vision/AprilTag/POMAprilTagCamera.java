@@ -18,7 +18,6 @@ public class POMAprilTagCamera extends POMCamera {
     }
 
     public List<POMAprilTag> getListOfVisibleTags() throws IOException {
-        // TODO
         List<POMAprilTag> list = new ArrayList<>();
         PhotonPipelineResult pipelineResult = photonCamera.getLatestResult();
         for (PhotonTrackedTarget trackedTarget : pipelineResult.getTargets()) {
