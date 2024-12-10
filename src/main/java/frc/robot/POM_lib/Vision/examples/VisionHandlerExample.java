@@ -14,14 +14,14 @@ public class VisionHandlerExample {
     POMObjectDetectionCamera objectDetectionCamera;
     POMAprilTagCamera aprilTagCamera;
 
-    VisionHandlerExample() {
+    VisionHandlerExample() throws IOException {
         objectDetectionCamera = new POMObjectDetectionCamera("test"
                 , new POMObjectDetectionCameraConfiguration(640, 480));
         aprilTagCamera = new POMAprilTagCamera("testAprilTag",
                 new Transform3d());
     }
 
-    public static VisionHandlerExample getInstance() {
+    public static VisionHandlerExample getInstance() throws IOException {
         if (instance != null) {
             return instance;
         } else {

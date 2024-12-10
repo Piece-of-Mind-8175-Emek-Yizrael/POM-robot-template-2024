@@ -7,9 +7,7 @@ public class POMAprilTag {
     Translation3d cameraToTag, robotToTag;
     int id;
 
-    public POMAprilTag(Translation3d cameraToTag, Translation3d robotToTag, int id) {
-        this.cameraToTag = cameraToTag;
-        this.robotToTag = robotToTag;
+    public POMAprilTag(int id) {
         this.id = id;
     }
 
