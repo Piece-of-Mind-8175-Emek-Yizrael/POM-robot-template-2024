@@ -2,7 +2,9 @@ package frc.robot.POM_lib;
 
 import edu.wpi.first.math.estimator.SwerveDrivePoseEstimator;
 import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.math.geometry.Pose3d;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.SwerveDriveWheelPositions;
 import frc.robot.POM_lib.Vision.AprilTag.POMAprilTagCamera;
 import org.photonvision.EstimatedRobotPose;
@@ -20,6 +22,10 @@ public class POMPoseEstimator {
 
     public Pose2d getPose() {
         return mainEstimator.getEstimatedPosition();
+    }
+
+    public Translation3d getDistFrom(Pose3d other) {
+        return other.minus(new Pose3d(getPose())).getTranslation();
     }
 
     public void update(SwerveDriveWheelPositions positions, Rotation2d rotation2d) {
