@@ -11,23 +11,23 @@ import java.util.Optional;
 
 public class POMPoseEstimator {
     POMAprilTagCamera[] cameras;
-    SwerveDrivePoseEstimator mainEstiator;
+    SwerveDrivePoseEstimator mainEstimator;
 
     public POMPoseEstimator(POMAprilTagCamera[] cameras, SwerveDrivePoseEstimator mainEstimator) {
         this.cameras = cameras;
-        this.mainEstiator = mainEstimator;
+        this.mainEstimator = mainEstimator;
     }
 
     public Pose2d getPose() {
-        return mainEstiator.getEstimatedPosition();
+        return mainEstimator.getEstimatedPosition();
     }
 
     public void update(SwerveDriveWheelPositions positions, Rotation2d rotation2d) {
         for (POMAprilTagCamera cam : cameras) {
             Optional<EstimatedRobotPose> estimatedRobotPose = cam.getEstimatedPose();
             estimatedRobotPose.ifPresent(robotPose ->
-                    mainEstiator.addVisionMeasurement(robotPose.estimatedPose.toPose2d(), robotPose.timestampSeconds));
+                    mainEstimator.addVisionMeasurement(robotPose.estimatedPose.toPose2d(), robotPose.timestampSeconds));
         }
-        mainEstiator.update(rotation2d, positions);
+        mainEstimator.update(rotation2d, positions);
     }
 }
