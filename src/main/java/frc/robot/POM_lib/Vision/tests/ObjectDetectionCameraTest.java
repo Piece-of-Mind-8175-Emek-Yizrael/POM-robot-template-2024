@@ -13,22 +13,12 @@ public class ObjectDetectionCameraTest extends Command {
     }
 
     @Override
-    public void initialize() {
-
-    }
-
-    @Override
     public void execute() {
         POMDetectedObject[] detectedObjectList = detectionCamera.getDetectionGroup().getAllObjects();
         for (POMDetectedObject object : detectedObjectList) {
             SmartDashboard.putNumber("vision/object center Y " + object.getType(), object.getCenterY());
             SmartDashboard.putNumber("vision/object center X " + object.getType(), object.getCenterX());
         }
-    }
-
-    @Override
-    public void end(boolean interrupted) {
-        
     }
 
     @Override
