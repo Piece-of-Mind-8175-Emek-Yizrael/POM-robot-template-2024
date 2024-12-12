@@ -24,6 +24,10 @@ public class POMDetectedObjectGroup {
         this.sortingOrder = newOrder;
     }
 
+    public POMDetectedObject[] getAllObjects() {
+        return (POMDetectedObject[]) detectedObjects.toArray();
+    }
+
     public POMDetectedObject getBestObject() {
         try {
             return sortingOrder.getSorted(detectedObjects, cameraConfiguration).get(0);
